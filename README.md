@@ -4,7 +4,7 @@ Invoke a [Particle function](https://docs.particle.io/reference/device-os/firmwa
 
 ## Usage
 
-In your GitHub action:
+In your GitHub action, to execute the `serve` function you've registered on a device:
 
 ```yml
   - uses: mattdsteele/particle-action@master
