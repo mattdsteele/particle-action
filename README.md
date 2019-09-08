@@ -6,7 +6,7 @@ Invoke a [Particle function](https://docs.particle.io/reference/device-os/firmwa
 
 In your GitHub action:
 
-```
+```yml
   - uses: mattdsteele/particle-action@master
     env:
       FUNCTION_NAME:  serve
