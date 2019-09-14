@@ -1,4 +1,4 @@
-FROM debian:9.5-slim
+FROM golang:latest
 
 LABEL "com.github.actions.name"="Particle"
 LABEL "com.github.actions.description"="Invoke a Particle Function"
@@ -9,6 +9,7 @@ LABEL "repository"="https://github.com/mattdsteele/particle-action"
 LABEL "homepage"="http://github.com/actions"
 LABEL "maintainer"="mattdsteele <orphum@gmail.com>"
 
-RUN apt-get update && apt-get install -y curl
-ADD particle.sh /particle.sh
-ENTRYPOINT ["/particle.sh"]
+COPY go.mod particle.go /
+RUN go mod download
+RUN go build -o main .
+ENTRYPOINT ["/main"]
