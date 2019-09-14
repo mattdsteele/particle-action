@@ -1,4 +1,11 @@
-FROM golang:latest
+# build stage
+FROM golang:alpine AS build-env
+RUN apk --no-cache add build-base git bzr mercurial gcc
+COPY go.mod particle.go /src/
+RUN cd /src && go build -o main
+
+# final stage
+FROM alpine
 
 LABEL "com.github.actions.name"="Particle"
 LABEL "com.github.actions.description"="Invoke a Particle Function"
@@ -9,7 +16,5 @@ LABEL "repository"="https://github.com/mattdsteele/particle-action"
 LABEL "homepage"="http://github.com/actions"
 LABEL "maintainer"="mattdsteele <orphum@gmail.com>"
 
-COPY go.mod particle.go /
-RUN go mod download
-RUN go build -o /main /
+COPY --from=build-env /src/main /
 ENTRYPOINT ["/main"]
