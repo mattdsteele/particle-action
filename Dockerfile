@@ -11,5 +11,5 @@ LABEL "maintainer"="mattdsteele <orphum@gmail.com>"
 
 COPY go.mod particle.go /
 RUN go mod download
-RUN go build -o main .
+RUN go build -o main /
 ENTRYPOINT ["/main"]
