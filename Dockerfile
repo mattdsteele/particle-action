@@ -2,7 +2,7 @@
 FROM golang:alpine AS build-env
 RUN apk --no-cache add build-base git bzr mercurial gcc
 COPY go.mod particle.go /src/
-RUN cd /src && go build -o main
+RUN cd /src && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o main
 
 # final stage
 FROM centurylink/ca-certs
