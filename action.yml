@@ -1,0 +1,18 @@
+name: Particle Function
+author: mattdsteele
+description: Invoke a Particle Function
+inputs:
+  FUNCTION_NAME:
+    description: The name of the Particle function you've registered using `Particle.function()`
+    required: true
+  DEVICE_ID:
+    description: The Device ID of the Particle device
+    required: true
+  ACCESS_TOKEN:
+    description: Access token obtained via the Particle Console
+    required: true
+using: docker
+image: Dockerfile
+branding:
+  icon: cloud
+  color: purple
