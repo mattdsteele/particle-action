@@ -5,7 +5,7 @@ COPY go.mod particle.go /src/
 RUN cd /src && go build -o main
 
 # final stage
-FROM alpine
+FROM centurylink/ca-certs
 
 LABEL "com.github.actions.name"="Particle"
 LABEL "com.github.actions.description"="Invoke a Particle Function"
