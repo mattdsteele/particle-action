@@ -14,7 +14,7 @@ jobs:
     - name: Publish to Registry (GitHub)
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: mattdsteele/particle-github-action
+        name: docker.pkg.github.com/mattdsteele/particle-github-action/particle-github-action
         username: ${{ secrets.GITHUB_PACKAGE_USERNAME }}
         password: ${{ secrets.GITHUB_PACKAGE_TOKEN }}
         registry: docker.pkg.github.com
