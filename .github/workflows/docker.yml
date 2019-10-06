@@ -5,16 +5,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-#    - name: Publish to Registry (Docker Hub)
-#      uses: elgohr/Publish-Docker-Github-Action@master
-#      with:
-#        name: mattdsteele/particle-github-action
-#        username: ${{ secrets.DOCKER_USERNAME }}
-#        password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Publish to Registry (Docker Hub)
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: mattdsteele/particle-github-action
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Publish to Registry (GitHub)
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: docker.pkg.github.com/mattdsteele/particle-github-action/particle-github-action
+        name: docker.pkg.github.com/mattdsteele/particle-action/particle-action
         username: ${{ secrets.GITHUB_PACKAGE_USERNAME }}
         password: ${{ secrets.GITHUB_PACKAGE_TOKEN }}
         registry: docker.pkg.github.com
