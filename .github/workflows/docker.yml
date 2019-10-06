@@ -17,4 +17,4 @@ jobs:
         name: mattdsteele/particle-github-action
         username: ${{ secrets.GITHUB_PACKAGE_USERNAME }}
         password: ${{ secrets.GITHUB_PACKAGE_TOKEN }}
-        registry:  docker.pkg.github.com
+        registry: docker.pkg.github.com
